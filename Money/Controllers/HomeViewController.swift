@@ -6,8 +6,36 @@
 //
 
 import UIKit
+import CoreData
+
+class DateHeaderLabel: UILabel {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = .black
+        textColor = .white
+        textAlignment = .left
+        translatesAutoresizingMaskIntoConstraints = false
+        font = UIFont.boldSystemFont(ofSize: 14)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let originalContentSize = super.intrinsicContentSize
+        let height = originalContentSize.height + 12
+        layer.cornerRadius = height / 2
+        layer.masksToBounds = true
+        return CGSize(width: originalContentSize.width + 20, height: height)
+    }
+}
 
 class HomeViewController: UIViewController {
+  
+    
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var balancesView: UIView!
@@ -20,11 +48,57 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var expensesLabel: UILabel!
     
-    var balance: [Balance] = []
+//    var balanceFromServer = [
+//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
+//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
+//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
+//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
+//                        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "Monika", balanceAmount: "8000", date: Date.dateFromCustomString(customString: "04/08/2020")),
+//                        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "Hola Pela", balanceAmount: "5000", date: Date())
+//
+//    ]
     
+//    var balance = [
+//
+//
+//        [
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021"))
+//        ],
+//            [
+//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
+//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
+//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021"))
+//            ],
+//        [
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date()),
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date()),
+//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date())
+//        ]
+//
+//
+//        ]
+    
+    var balanceFromServer = [Balances]()
+    var balance = [[Balances]]()
+    
+  
+    
+    var totalExpenses = [Expenses]()
+    var totalIncome = [Income]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var totalBalance = 0.0
+    var expenseNumber = 0.0
+    var incomeNumber = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    
+      
         
         balancesView.layer.cornerRadius = 8
         incomeView.layer.cornerRadius = 8
@@ -35,34 +109,202 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-        balance = createBalance()
+      
+       
         
+        
+    
+        
+   
+        
+        for i in 0..<totalExpenses.count {
+            expenseNumber = totalExpenses[i].expenses
+            expensesLabel.text = "\(totalExpenses[i].expenses)"
+
+        }
+        
+        for i in 0..<totalIncome.count {
+            incomeNumber = totalIncome[i].income
+            incomeLabel.text = "\(totalIncome[i].income)"
+        }
+        
+     
+     
+            
+        //attempToAssembleGroupBalances()
+        
+        
+    }
+
+    func attempToAssembleGroupBalances() {
+        let groupBalances = Dictionary(grouping: balanceFromServer) { (element) -> Date in
+           
+            return element.date ?? Date()
+
+        }
+        
+        let sortedKeys = groupBalances.keys.sorted()
+        sortedKeys.forEach { key in
+            var values = groupBalances[key]
+            
+            balance.append(values ?? [])
+            print(balance.count)
+            }
+           
+          
+            
+            
+        }
+
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        balance.removeAll()
+        loadBalances()
+//        deleteAllData("Balances")
+//        balance.removeAll()
+//        saveBalances()
+        
+     
+        for i in 0..<totalExpenses.count {
+            expenseNumber = totalExpenses[i].expenses
+            expensesLabel.text = "$\(totalExpenses[i].expenses)"
+
+        }
+        for i in 0..<totalIncome.count {
+            incomeNumber = totalIncome[i].income
+            incomeLabel.text = "$\(totalIncome[i].income)"
+        }
+      
+        totalBalance = incomeNumber - expenseNumber
+        balanceLabel.text = "$\(totalBalance)"
+       
+            attempToAssembleGroupBalances()
+            tableView.reloadData()
+        
+        
+        
+     
+        
+    }
+
+    
+   
+    func saveBalances() {
+        do {
+            try context.save()
+        }catch {
+            print("Error saving context \(error)")
+        }
+    }
+
+    
+
+    
+    func loadBalances() {
+        let request: NSFetchRequest<Expenses> = Expenses.fetchRequest()
+        let incomeRequest: NSFetchRequest<Income> = Income.fetchRequest()
+        let balancesRequest: NSFetchRequest<Balances> = Balances.fetchRequest()
+//        let sort = NSSortDescriptor(key: #keyPath(Balances.date), ascending: true)
+//            balancesRequest.sortDescriptors = [sort]
+        do {
+            totalExpenses = try context.fetch(request)
+            totalIncome = try context.fetch(incomeRequest)
+            balanceFromServer = try context.fetch(balancesRequest)
+        } catch {
+            print("Error fetching data \(error)")
+        }
     }
     
-    func createBalance() -> [Balance] {
-        var tempBalance: [Balance] = []
-        
-        tempBalance.append(Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89"))
-        tempBalance.append(Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89"))
-        tempBalance.append(Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89"))
-        tempBalance.append(Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89"))
-        tempBalance.append(Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89"))
-      
-        return tempBalance
+    func entityIsEmpty(entity: String) -> Bool
+    {
+
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        var results : NSArray?
+
+        do {
+            results = try context.fetch(request) as! [NSManagedObject] as NSArray
+            print(results)
+            return results?.count == 0
+
+        } catch let error as NSError {
+            // failure
+            print("Error: \(error.debugDescription)")
+            return true
+        }
     }
+    
+    func deleteAllData(_ entity:String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                context.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+    }
+  
+ 
+    
+
 
 
 }
 
+
+
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return balance.count
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
+        if let firstDate = balance[section].first {
+            let label = DateHeaderLabel()
+            label.backgroundColor = .black
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+
+            let dateString = dateFormatter.string(from: firstDate.date ?? Date())
+
+
+            label.text = dateString
+            label.textColor = .white
+            label.textAlignment = .center
+            label.translatesAutoresizingMaskIntoConstraints = false
+
+            let containerView = UIView()
+
+            containerView.addSubview(label)
+            label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+            label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+
+            return containerView
+        }
+       return nil
+        }
+    
+   
+    
+
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return balance[section].count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "balanceCell", for: indexPath) as! BalancesTableViewCell
-        let balance = balance[indexPath.row]
+        let balance = balance[indexPath.section][indexPath.row]
         
         cell.setBalance(balance: balance)
             
@@ -71,5 +313,14 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     
+}
+
+extension Date {
+    static func dateFromCustomString(customString: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        return dateFormatter.date(from: customString) ?? Date()
+        
+    }
 }
 

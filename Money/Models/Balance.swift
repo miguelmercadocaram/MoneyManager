@@ -12,4 +12,5 @@ struct Balance {
     let balanceImage: UIImage?
     let categoryName: String
     let balanceAmount: String
+    let date: Date
 }

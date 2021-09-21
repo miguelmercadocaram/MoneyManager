@@ -35,9 +35,10 @@ class CustomTabBarController: UITabBarController {
         let controller5 = UIViewController()
         controller5.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)
         let nav5 = UINavigationController(rootViewController: controller5)
-
-        viewControllers = [nav1, nav2, nav4, nav5]
+        
         setupMiddleButton()
+        viewControllers = [nav1, nav2, nav4, nav5]
+       
     }
 
     func setupMiddleButton() {
@@ -65,7 +66,7 @@ class CustomTabBarController: UITabBarController {
         guard let controller3 = storyboard?.instantiateViewController(identifier: "DEViewController") else { return  }
         let nav3 = UINavigationController(rootViewController: controller3)
         nav3.view.backgroundColor = .clear
-        nav3.modalPresentationStyle = .overCurrentContext
+        nav3.modalPresentationStyle = .fullScreen
         present(nav3, animated: true, completion: nil)
     }
 

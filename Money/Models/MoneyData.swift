@@ -6,12 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 struct MoneyData {
     let date: Date
     let account: [Account]
     let category: [Category]
-    let amount: Double
+    var amount: Double
     let note: String
 }
 
@@ -20,5 +21,13 @@ struct Account {
 }
 
 struct Category {
-    let category: String
+    var categoryName: String? = nil
+    let image: UIImage!
 }
+
+struct Colors {
+    let colorView: UIColor
+}
+
+
+
