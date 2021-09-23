@@ -48,6 +48,7 @@ class DataEntriesViewController: UIViewController {
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         entryBalanceView.layer.cornerRadius = 18
+        categoryLogo.layer.cornerRadius = categoryLogo.frame.size.width / 2
    
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -69,24 +70,21 @@ class DataEntriesViewController: UIViewController {
     func createCategories() -> [Category] {
         var tempCategory: [Category] = []
         
-        tempCategory.append(Category(categoryName: "House", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Groceries", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Car", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Travel", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "School", image: UIImage(named: "pet")))
+        tempCategory.append(Category(categoryName: "Food", image: UIImage(named: "food")))
+        tempCategory.append(Category(categoryName: "Social Life", image: UIImage(named: "social")))
+        tempCategory.append(Category(categoryName: "Transportation", image: UIImage(named: "transportation")))
+        tempCategory.append(Category(categoryName: "Self-development", image: UIImage(named: "selfdevelopment")))
+        tempCategory.append(Category(categoryName: "Culture", image: UIImage(named: "culture")))
         tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
+        tempCategory.append(Category(categoryName: "House", image: UIImage(named: "house")))
+        tempCategory.append(Category(categoryName: "Health", image: UIImage(named: "health")))
+        tempCategory.append(Category(categoryName: "Beauty", image: UIImage(named: "beauty")))
+        tempCategory.append(Category(categoryName: "Education", image: UIImage(named: "education")))
+        tempCategory.append(Category(categoryName: "Gift", image: UIImage(named: "gift")))
+        tempCategory.append(Category(categoryName: "Other", image: UIImage(named: "other")))
+        tempCategory.append(Category(categoryName: "Shopping", image: UIImage(named: "shopping")))
+        tempCategory.append(Category(categoryName: "Subscriptions", image: UIImage(named: "subscription")))
+      
         
         return tempCategory
         

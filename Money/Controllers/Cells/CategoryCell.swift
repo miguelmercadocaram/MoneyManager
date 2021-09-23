@@ -17,5 +17,6 @@ class CategoryCell: UICollectionViewCell {
         categoryName.text = category.categoryName
     }
     
+ 
     
 }
