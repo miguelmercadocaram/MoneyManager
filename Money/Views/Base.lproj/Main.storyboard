@@ -528,13 +528,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wYS-HN-IrQ">
-                                <rect key="frame" x="84" y="171" width="247" height="31"/>
+                                <rect key="frame" x="84" y="171" width="247" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Q6w-6l-Grb"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Expenses"/>
+                                    <segment title="Income"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlPressed:" destination="fAD-cu-H0S" eventType="valueChanged" id="kSg-p9-KR1"/>
@@ -542,7 +542,7 @@
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zt2-ST-OpY">
                                 <rect key="frame" x="20" y="218" width="374" height="590"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Q6w-qF-NbK">
                                     <size key="itemSize" width="147" height="138"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -620,6 +620,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Zt2-ST-OpY" id="zBF-3L-gG1"/>
                         <outlet property="searchBar" destination="ah9-oj-rGT" id="Z0B-Vz-kRo"/>
+                        <outlet property="segmentedControl" destination="wYS-HN-IrQ" id="cYY-ja-1Rd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u66-Yo-xW5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -949,7 +950,7 @@
         <image name="balanceWallet" width="707" height="496"/>
         <image name="expenses" width="170" height="145"/>
         <image name="incomeImage" width="121" height="176"/>
-        <image name="pet" width="16" height="16"/>
+        <image name="pet" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

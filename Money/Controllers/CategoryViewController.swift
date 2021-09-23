@@ -13,9 +13,11 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var categories: [Category] = []
+  
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
+    var expensesCategories: [Category] = []
+    var incomeCategories: [Category] = []
     
         let inset: CGFloat = 10
        let minimumLineSpacing: CGFloat = 10
@@ -29,36 +31,47 @@ class CategoryViewController: UIViewController {
         collectionView.dataSource = self
         
         
-        categories = createCategories()
+        expensesCategories = createCategories()
+        incomeCategories = createIncomeCategories()
+        
     }
+    
     
     func createCategories() -> [Category] {
         var tempCategory: [Category] = []
         
+        tempCategory.append(Category(categoryName: "Food", image: UIImage(named: "food")))
+        tempCategory.append(Category(categoryName: "Social Life", image: UIImage(named: "social")))
+        tempCategory.append(Category(categoryName: "Transportation", image: UIImage(named: "transportation")))
+        tempCategory.append(Category(categoryName: "Self-development", image: UIImage(named: "selfdevelopment")))
+        tempCategory.append(Category(categoryName: "Culture", image: UIImage(named: "culture")))
         tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
-        tempCategory.append(Category(categoryName: "Pet", image: UIImage(named: "pet")))
+        tempCategory.append(Category(categoryName: "House", image: UIImage(named: "house")))
+        tempCategory.append(Category(categoryName: "Health", image: UIImage(named: "health")))
+        tempCategory.append(Category(categoryName: "Beauty", image: UIImage(named: "beauty")))
+        tempCategory.append(Category(categoryName: "Education", image: UIImage(named: "education")))
+        tempCategory.append(Category(categoryName: "Gift", image: UIImage(named: "gift")))
+        tempCategory.append(Category(categoryName: "Other", image: UIImage(named: "other")))
+        tempCategory.append(Category(categoryName: "Shopping", image: UIImage(named: "shopping")))
+        tempCategory.append(Category(categoryName: "Subscriptions", image: UIImage(named: "subscription")))
+      
         
         return tempCategory
         
         
     }
-
+    
+    func createIncomeCategories() -> [Category] {
+        var tempCategory: [Category] = []
+        
+        tempCategory.append(Category(categoryName: "Salary", image: UIImage(named: "salary")))
+        tempCategory.append(Category(categoryName: "Private", image: UIImage(named: "private")))
+        tempCategory.append(Category(categoryName: "Investments", image: UIImage(named: "investments")))
+        tempCategory.append(Category(categoryName: "Gift", image: UIImage(named: "gift")))
+        tempCategory.append(Category(categoryName: "Other", image: UIImage(named: "other")))
+       
+        return tempCategory
+    }
  
 
     @IBAction func dismissBtnPressed(_ sender: UIButton) {
@@ -67,7 +80,10 @@ class CategoryViewController: UIViewController {
     @IBAction func editBtn(_ sender: UIButton) {
     }
     @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
+        collectionView.reloadData()
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
     }
+    
 }
 
 extension CategoryViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -77,17 +93,29 @@ extension CategoryViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if segmentedControl.selectedSegmentIndex == 0 {
+            return expensesCategories.count
+        }else {
+        
+            return incomeCategories.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let category = categories[indexPath.row]
+        let category = expensesCategories[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCell
         let createCategory = Category(categoryName: "Create New", image: UIImage(systemName: "plus.circle.fill"))
+        
         if indexPath.item == 0 {
             cell.setCategory(category: createCategory)
         }else {
-            cell.setCategory(category: category)
+            if segmentedControl.selectedSegmentIndex == 0 {
+                cell.setCategory(category: category)
+            }else {
+                let incomeCategory = incomeCategories[indexPath.row]
+                cell.setCategory(category: incomeCategory)
+            }
+            
         }
         
         

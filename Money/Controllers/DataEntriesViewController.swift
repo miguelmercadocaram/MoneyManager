@@ -22,7 +22,8 @@ class DataEntriesViewController: UIViewController {
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-    var categories: [Category] = []
+    var expensesCategories: [Category] = []
+    var incomeCategories: [Category] = []
     
     private let sectionInsets = UIEdgeInsets(
       top: 0,
@@ -38,8 +39,7 @@ class DataEntriesViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    var expenseActive = false
-    var incomeActive = false
+ 
     
     
     override func viewDidLoad() {
@@ -54,7 +54,8 @@ class DataEntriesViewController: UIViewController {
         collectionView.dataSource = self
         
         
-        categories = createCategories()
+        expensesCategories = createCategories()
+        incomeCategories = createIncomeCategories()
  
         loadBalances()
         
@@ -90,6 +91,18 @@ class DataEntriesViewController: UIViewController {
         
         
     }
+    
+    func createIncomeCategories() -> [Category] {
+        var tempCategory: [Category] = []
+        
+        tempCategory.append(Category(categoryName: "Salary", image: UIImage(named: "salary")))
+        tempCategory.append(Category(categoryName: "Private", image: UIImage(named: "private")))
+        tempCategory.append(Category(categoryName: "Investments", image: UIImage(named: "investments")))
+        tempCategory.append(Category(categoryName: "Gift", image: UIImage(named: "gift")))
+        tempCategory.append(Category(categoryName: "Other", image: UIImage(named: "other")))
+       
+        return tempCategory
+    }
 
    
 
@@ -103,13 +116,17 @@ class DataEntriesViewController: UIViewController {
             print(sender.selectedSegmentIndex)
             
             entryBalanceView.backgroundColor = .systemRed
+            
 
         }else if sender.selectedSegmentIndex == 1 {
             
             entryBalanceView.backgroundColor = .systemGreen
             print(sender.selectedSegmentIndex)
+            
 
         }
+        collectionView.reloadData()
+        collectionView.reloadItems(at: collectionView.indexPathsForVisibleItems)
     }
     @IBAction func seeAllBtnPressed(_ sender: UIButton) {
     }
@@ -255,21 +272,35 @@ class DataEntriesViewController: UIViewController {
 
 extension DataEntriesViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        if segmentController.selectedSegmentIndex == 0 {
+            return expensesCategories.count
+        }else {
+        
+            return incomeCategories.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let category = categories[indexPath.row]
+        let expensesCategory = expensesCategories[indexPath.row]
+       
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as! CategoryCell
         
-        cell.setCategory(category: category)
+        if segmentController.selectedSegmentIndex == 0 {
+            cell.setCategory(category: expensesCategory)
+        }else {
+            let incomeCategory = incomeCategories[indexPath.row]
+            cell.setCategory(category: incomeCategory)
+           
+            
+        }
+        
+       
         
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//        return sectionInsets
-//    }
+
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.height/2, height: collectionView.frame.height/2)
@@ -281,9 +312,16 @@ extension DataEntriesViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let category = categories[indexPath.row]
-        categoryLogo.image = category.image
-        categoryLabel.text = category.categoryName
+        if segmentController.selectedSegmentIndex == 0 {
+            let category = expensesCategories[indexPath.row]
+            categoryLogo.image = category.image
+            categoryLabel.text = category.categoryName
+        }else {
+            let category = incomeCategories[indexPath.row]
+            categoryLogo.image = category.image
+            categoryLabel.text = category.categoryName
+        }
+    
     }
     
     
