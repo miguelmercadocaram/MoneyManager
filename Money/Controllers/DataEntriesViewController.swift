@@ -39,7 +39,10 @@ class DataEntriesViewController: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
- 
+    var amountTemp: String = ""
+    var imgTemp: UIImage = UIImage(named: "") ?? UIImage()
+    var categoryTemp: String = ""
+    
     
     
     override func viewDidLoad() {
@@ -49,6 +52,10 @@ class DataEntriesViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
         entryBalanceView.layer.cornerRadius = 18
         categoryLogo.layer.cornerRadius = categoryLogo.frame.size.width / 2
+        
+        amountTextField.text = amountTemp
+        categoryLogo.image = imgTemp
+        categoryLabel.text = categoryTemp
    
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -58,6 +65,8 @@ class DataEntriesViewController: UIViewController {
         incomeCategories = createIncomeCategories()
  
         loadBalances()
+        
+        
         
 //        deleteAllData("Balances")
 //        entityIsEmpty(entity: "Balances")

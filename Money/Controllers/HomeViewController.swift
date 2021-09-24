@@ -312,6 +312,22 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
        return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let balance = balance[indexPath.section][indexPath.row]
+        let dataEntriesVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DEViewController") as! DataEntriesViewController
+        let nav3 = UINavigationController(rootViewController: dataEntriesVC)
+        nav3.view.backgroundColor = .clear
+        nav3.modalPresentationStyle = .fullScreen
+      
+        
+        dataEntriesVC.amountTemp = "\(balance.amount)"
+        dataEntriesVC.categoryTemp = balance.categoryName ?? ""
+        let dataImage = UIImage(data: balance.categoryImage ?? Data())
+        dataEntriesVC.imgTemp = dataImage ?? UIImage()
+        present(nav3, animated: true, completion: nil)
+        
+    }
+    
     
 }
 
