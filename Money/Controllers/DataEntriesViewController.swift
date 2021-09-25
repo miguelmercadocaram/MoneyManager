@@ -42,6 +42,9 @@ class DataEntriesViewController: UIViewController {
     var amountTemp: String = ""
     var imgTemp: UIImage = UIImage(named: "") ?? UIImage()
     var categoryTemp: String = ""
+    var dateTemp = Date()
+    var update: Bool = false
+    var count = 0
     
     
     
@@ -56,6 +59,7 @@ class DataEntriesViewController: UIViewController {
         amountTextField.text = amountTemp
         categoryLogo.image = imgTemp
         categoryLabel.text = categoryTemp
+        datePicker.date = dateTemp
    
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -156,9 +160,16 @@ class DataEntriesViewController: UIViewController {
             newCategoryData.categoryImage = pngImageData
             newCategoryData.date = datePicker.date
             
+            if update == true {
+                self.context.delete(totalBalances[count])
+                self.totalBalances.remove(at: count)
+                self.totalBalances.insert(newCategoryData, at: count)
+                dismiss(animated: true, completion: nil)
+            }
+            
             self.totalBalances.append(newCategoryData)
             
-
+            
             
             
             for i in 0..<totalExpenses.count - 1{
@@ -201,6 +212,8 @@ class DataEntriesViewController: UIViewController {
             }
             
         }
+        
+        
 
         self.saveBalances()
         dismiss(animated: true, completion: nil)

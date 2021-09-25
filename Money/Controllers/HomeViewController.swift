@@ -318,13 +318,32 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let nav3 = UINavigationController(rootViewController: dataEntriesVC)
         nav3.view.backgroundColor = .clear
         nav3.modalPresentationStyle = .fullScreen
+
       
+        for i in 0..<balanceFromServer.count {
+            
+            if balance.id == balanceFromServer[i].id {
+               
+                print(i)
+                dataEntriesVC.count = i
+                print(balanceFromServer[i])
+            }else {
+                print("not matched")
+            }
+        }
         
         dataEntriesVC.amountTemp = "\(balance.amount)"
         dataEntriesVC.categoryTemp = balance.categoryName ?? ""
         let dataImage = UIImage(data: balance.categoryImage ?? Data())
         dataEntriesVC.imgTemp = dataImage ?? UIImage()
+        dataEntriesVC.update = true
+        dataEntriesVC.dateTemp = balance.date ?? Date()
+        
         present(nav3, animated: true, completion: nil)
+        
+     
+        
+        
         
     }
     
