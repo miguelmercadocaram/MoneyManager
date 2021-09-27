@@ -18,10 +18,12 @@ class CustomTabBarController: UITabBarController {
         //let controller1 = UIViewController()
         firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
         let nav1 = UINavigationController(rootViewController: firstVC)
-
-        let controller2 = UIViewController()
-        controller2.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
-        let nav2 = UINavigationController(rootViewController: controller2)
+        
+        
+        let secondVC = storyboard.instantiateViewController(withIdentifier: "ReportsController")
+        //let controller2 = UIViewController()
+        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        let nav2 = UINavigationController(rootViewController: secondVC)
 
 //        let controller3 = storyboard.instantiateViewController(identifier: "DEViewController")
 //        let nav3 = UINavigationController(rootViewController: controller3)

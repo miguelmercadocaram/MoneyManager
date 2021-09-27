@@ -109,13 +109,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-      
-       
-        
-        
-    
-        
-   
+
         
         for i in 0..<totalExpenses.count {
             expenseNumber = totalExpenses[i].expenses
@@ -151,8 +145,6 @@ class HomeViewController: UIViewController {
             print(balance.count)
             }
            
-          
-            
             
         }
 
@@ -183,10 +175,7 @@ class HomeViewController: UIViewController {
             attempToAssembleGroupBalances()
             tableView.reloadData()
         
-        
-        
-     
-        
+
     }
 
     
@@ -199,9 +188,7 @@ class HomeViewController: UIViewController {
         }
     }
 
-    
 
-    
     func loadBalances() {
         let request: NSFetchRequest<Expenses> = Expenses.fetchRequest()
         let incomeRequest: NSFetchRequest<Income> = Income.fetchRequest()
