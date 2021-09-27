@@ -314,6 +314,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let balance = balance[indexPath.section][indexPath.row]
+        print(balance)
         let dataEntriesVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "DEViewController") as! DataEntriesViewController
         let nav3 = UINavigationController(rootViewController: dataEntriesVC)
         nav3.view.backgroundColor = .clear
@@ -341,10 +342,39 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         
         present(nav3, animated: true, completion: nil)
         
-     
-        
-        
-        
+
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            var count = 0
+
+
+            for i in 0..<balanceFromServer.count {
+                let balance = balance[indexPath.section][indexPath.row]
+                if balance.id == balanceFromServer[i].id {
+
+
+                    count = i
+
+                }else {
+                    print("not matched")
+                }
+            }
+
+            self.context.delete(balanceFromServer[count])
+            saveBalances()
+            balance.removeAll()
+            loadBalances()
+            attempToAssembleGroupBalances()
+            tableView.reloadData()
+         
+
+        }
     }
     
     

@@ -166,6 +166,7 @@ class DataEntriesViewController: UIViewController {
                 self.totalBalances.insert(newCategoryData, at: count)
                 dismiss(animated: true, completion: nil)
             }
+            print(update)
             
             self.totalBalances.append(newCategoryData)
             
@@ -198,6 +199,14 @@ class DataEntriesViewController: UIViewController {
             let pngImageData  = categoryLogo.image?.pngData()
             newCategoryData.categoryImage = pngImageData
             newCategoryData.date = datePicker.date
+            
+            
+            if update == true {
+                self.context.delete(totalBalances[count])
+                self.totalBalances.remove(at: count)
+                self.totalBalances.insert(newCategoryData, at: count)
+                dismiss(animated: true, completion: nil)
+            }
             
             self.totalBalances.append(newCategoryData)
             
