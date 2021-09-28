@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3E1F73B82701C83F00D6B1F4 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F73B72701C83F00D6B1F4 /* ReportsViewController.swift */; };
+		3E25D0732702E61B00181A21 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0722702E61B00181A21 /* NewsModel.swift */; };
+		3E25D0752702E63500181A21 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0742702E63500181A21 /* NewsManager.swift */; };
+		3E25D0772702F8BC00181A21 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0762702F8BC00181A21 /* NewsData.swift */; };
 		3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3700B026EBD80C00713904 /* ColorCell.swift */; };
 		3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A4C426F5E2A2002BA59E /* DummyFile.swift */; };
 		3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */; };
@@ -32,6 +35,9 @@
 
 /* Begin PBXFileReference section */
 		3E1F73B72701C83F00D6B1F4 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
+		3E25D0722702E61B00181A21 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
+		3E25D0742702E63500181A21 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
+		3E25D0762702F8BC00181A21 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
 		3E3700B026EBD80C00713904 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3E66A4C426F5E2A2002BA59E /* DummyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFile.swift; sourceTree = "<group>"; };
 		3E6FF59C26D3FDB500A373CB /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +73,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E25D0712702E5F600181A21 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3E25D0722702E61B00181A21 /* NewsModel.swift */,
+				3E25D0742702E63500181A21 /* NewsManager.swift */,
+				3E25D0762702F8BC00181A21 /* NewsData.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		3E6FF59326D3FDB400A373CB = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +118,7 @@
 		3E6FF5B626D40FD000A373CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E25D0712702E5F600181A21 /* Networking */,
 				3E66A4C426F5E2A2002BA59E /* DummyFile.swift */,
 				3E6FF5B926D4111000A373CB /* MoneyData.swift */,
 				3EF37F9326DA11CD0043A7E1 /* Balance.swift */,
@@ -219,6 +236,7 @@
 				3EF37F9126D7CBDB0043A7E1 /* BalancesTableViewCell.swift in Sources */,
 				3EF37F9A26DCFD0F0043A7E1 /* DataEntriesViewController.swift in Sources */,
 				3E6FF5A426D3FDB500A373CB /* HomeViewController.swift in Sources */,
+				3E25D0772702F8BC00181A21 /* NewsData.swift in Sources */,
 				3EB7ADB726E89BBF00C36345 /* CreateCategoryViewController.swift in Sources */,
 				3EF37F9626DCE5A30043A7E1 /* CustomTabBarController.swift in Sources */,
 				3EC56F6C26E5F20700B63E48 /* CategoryViewController.swift in Sources */,
@@ -227,6 +245,8 @@
 				3EF37F9826DCF63F0043A7E1 /* CustomTabBar.swift in Sources */,
 				3E6FF5AA26D3FDB500A373CB /* Money.xcdatamodeld in Sources */,
 				3EB60DAA26F47A16007BE8CD /* ModalTransitionMediator.swift in Sources */,
+				3E25D0732702E61B00181A21 /* NewsModel.swift in Sources */,
+				3E25D0752702E63500181A21 /* NewsManager.swift in Sources */,
 				3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */,
 				3E6FF5BA26D4111000A373CB /* MoneyData.swift in Sources */,
 				3EF37F9426DA11CD0043A7E1 /* Balance.swift in Sources */,
