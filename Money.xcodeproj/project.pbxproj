@@ -11,6 +11,7 @@
 		3E25D0732702E61B00181A21 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0722702E61B00181A21 /* NewsModel.swift */; };
 		3E25D0752702E63500181A21 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0742702E63500181A21 /* NewsManager.swift */; };
 		3E25D0772702F8BC00181A21 /* NewsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0762702F8BC00181A21 /* NewsData.swift */; };
+		3E25D0792704236700181A21 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0782704236700181A21 /* NewsViewController.swift */; };
 		3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3700B026EBD80C00713904 /* ColorCell.swift */; };
 		3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A4C426F5E2A2002BA59E /* DummyFile.swift */; };
 		3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */; };
@@ -38,6 +39,7 @@
 		3E25D0722702E61B00181A21 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		3E25D0742702E63500181A21 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		3E25D0762702F8BC00181A21 /* NewsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsData.swift; sourceTree = "<group>"; };
+		3E25D0782704236700181A21 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		3E3700B026EBD80C00713904 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3E66A4C426F5E2A2002BA59E /* DummyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFile.swift; sourceTree = "<group>"; };
 		3E6FF59C26D3FDB500A373CB /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +149,7 @@
 				3EF37F9926DCFD0F0043A7E1 /* DataEntriesViewController.swift */,
 				3EC56F6B26E5F20700B63E48 /* CategoryViewController.swift */,
 				3EB7ADB626E89BBF00C36345 /* CreateCategoryViewController.swift */,
+				3E25D0782704236700181A21 /* NewsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 				3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */,
 				3E6FF5BA26D4111000A373CB /* MoneyData.swift in Sources */,
 				3EF37F9426DA11CD0043A7E1 /* Balance.swift in Sources */,
+				3E25D0792704236700181A21 /* NewsViewController.swift in Sources */,
 				3E6FF5A226D3FDB500A373CB /* SceneDelegate.swift in Sources */,
 				3E74540B26E1E75C005E762E /* CategoryCell.swift in Sources */,
 			);

@@ -927,10 +927,10 @@
             </objects>
             <point key="canvasLocation" x="7681" y="434"/>
         </scene>
-        <!--View Controller-->
+        <!--News View Controller-->
         <scene sceneID="OeA-r5-xzv">
             <objects>
-                <viewController id="Luo-Ni-9JF" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsVC" id="Luo-Ni-9JF" customClass="NewsViewController" customModule="Money" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u8d-cs-v1g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -941,7 +941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ae-lM-wl9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4330" y="1306"/>
+            <point key="canvasLocation" x="4259" y="1306"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="nm2-b3-HbM">

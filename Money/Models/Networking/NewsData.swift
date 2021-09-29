@@ -8,19 +8,22 @@
 import Foundation
 
 struct NewsData: Codable {
-    let source: [Source]
-    let articles: [Article]
+
+    let articles: [Articles]
     
 }
 
-struct Source: Codable {
-    let name: String
-}
-
-struct Article: Codable {
-    let author: String
+struct Articles: Codable {
+    let source: Source
     let title: String
     let description: String
     let content: String
-    
+
+
+}
+
+
+
+struct Source: Codable {
+    let name: String
 }

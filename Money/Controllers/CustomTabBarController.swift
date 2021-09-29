@@ -30,9 +30,9 @@ class CustomTabBarController: UITabBarController {
 //        nav3.title = ""
         
 
-        let controller4 = UIViewController()
-        controller4.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
-        let nav4 = UINavigationController(rootViewController: controller4)
+        let fourthVC = storyboard.instantiateViewController(withIdentifier: "newsVC")
+        fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
+        let nav4 = UINavigationController(rootViewController: fourthVC)
 
         let controller5 = UIViewController()
         controller5.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)

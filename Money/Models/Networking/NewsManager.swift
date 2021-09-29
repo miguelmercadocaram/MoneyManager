@@ -7,17 +7,21 @@
 
 import Foundation
 
+//https://newsapi.org/v2/from=2021-08-29&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d&everything?q=tesla
+
 // apikey = 5d33f65acad6453d92760e7c0fa0a89d
+//tesla&from=2021-08-29&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d
 protocol NewsManagerDelegate {
     func didUpdateNews(_ newsManager: NewsManager, news: NewsModel)
     func didFailWithError(error: Error)
 }
 struct NewsManager {
-    let newsURL = "https://newsapi.org/v2/everything?&from=2021-08-28&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d"
+    let newsURL = "https://newsapi.org/v2/everything?from=2021-08-29&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d"
     var delegate: NewsManagerDelegate?
     func fetchNews(topic: String) {
         let urlString = "\(newsURL)&q=\(topic)"
         performRequest(with: urlString)
+        print(urlString)
     }
     
     func performRequest(with urlString: String) {
@@ -42,12 +46,15 @@ struct NewsManager {
         let decoder = JSONDecoder()
         do {
             let decodedData = try decoder.decode(NewsData.self, from: newsData)
-            let name = decodedData.source[0].name
+      
+            let title = decodedData.articles[0].title
             let description = decodedData.articles[0].description
             let content = decodedData.articles[0].content
-            let author = decodedData.articles[0].author
-            let news = NewsModel(name: name, author: author, description: description, content: content)
+
+            let news = NewsModel(title: title, description: description, content: content)
+            print(news)
             return news
+           
         } catch {
             delegate?.didFailWithError(error: error)
             return nil
