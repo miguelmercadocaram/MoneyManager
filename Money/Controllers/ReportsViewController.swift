@@ -20,6 +20,8 @@ class ReportsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         balance.removeAll()
         loadBalances()
         
