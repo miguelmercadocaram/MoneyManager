@@ -10,6 +10,7 @@ import UIKit
 class NewsCell: UITableViewCell {
 
     @IBOutlet weak var content: UIView!
+    @IBOutlet weak var title: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +20,8 @@ class NewsCell: UITableViewCell {
         content.layer.cornerRadius = 10
         
     }
+    
+    
     
     override func layoutSubviews() {
           super.layoutSubviews()
