@@ -8,5 +8,6 @@ target 'Money' do
   # Pods for Money
 	pod 'Firebase/Auth'
 	pod 'Firebase/Firestore'
+  pod 'GoogleSignIn'
 
 end

@@ -98,7 +98,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
     
-      
+        navigationController?.isNavigationBarHidden = true
         
         balancesView.layer.cornerRadius = 8
         incomeView.layer.cornerRadius = 8
