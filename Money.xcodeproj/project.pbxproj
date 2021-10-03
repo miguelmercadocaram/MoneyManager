@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		153C57EABB471FA8CFF0D2A1 /* Pods_Money.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BE1CA9F5A5815B9243A085 /* Pods_Money.framework */; };
 		3E1F73B82701C83F00D6B1F4 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F73B72701C83F00D6B1F4 /* ReportsViewController.swift */; };
 		3E25D0732702E61B00181A21 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0722702E61B00181A21 /* NewsModel.swift */; };
 		3E25D0752702E63500181A21 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0742702E63500181A21 /* NewsManager.swift */; };
@@ -14,6 +15,8 @@
 		3E25D0792704236700181A21 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D0782704236700181A21 /* NewsViewController.swift */; };
 		3E25D07B2705A4CF00181A21 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D07A2705A4CF00181A21 /* NewsCell.swift */; };
 		3E25D07D2706E36500181A21 /* DetailNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D07C2706E36400181A21 /* DetailNewsViewController.swift */; };
+		3E25D07F27098F6600181A21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E25D07E27098F6600181A21 /* GoogleService-Info.plist */; };
+		3E25D08127098FCD00181A21 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D08027098FCD00181A21 /* WelcomeViewController.swift */; };
 		3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3700B026EBD80C00713904 /* ColorCell.swift */; };
 		3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A4C426F5E2A2002BA59E /* DummyFile.swift */; };
 		3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */; };
@@ -37,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27EAB31D30B12E78935C8236 /* Pods-Money.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money.release.xcconfig"; path = "Target Support Files/Pods-Money/Pods-Money.release.xcconfig"; sourceTree = "<group>"; };
 		3E1F73B72701C83F00D6B1F4 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		3E25D0722702E61B00181A21 /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		3E25D0742702E63500181A21 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		3E25D0782704236700181A21 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		3E25D07A2705A4CF00181A21 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		3E25D07C2706E36400181A21 /* DetailNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailNewsViewController.swift; path = Money/Views/DetailNewsViewController.swift; sourceTree = SOURCE_ROOT; };
+		3E25D07E27098F6600181A21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3E25D08027098FCD00181A21 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3E3700B026EBD80C00713904 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3E66A4C426F5E2A2002BA59E /* DummyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFile.swift; sourceTree = "<group>"; };
 		3E6FF59C26D3FDB500A373CB /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +72,8 @@
 		3EF37F9526DCE5A30043A7E1 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		3EF37F9726DCF63F0043A7E1 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		3EF37F9926DCFD0F0043A7E1 /* DataEntriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntriesViewController.swift; sourceTree = "<group>"; };
+		92BE1CA9F5A5815B9243A085 /* Pods_Money.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Money.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D989AC74C9B5FC2C087360D /* Pods-Money.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Money.debug.xcconfig"; path = "Target Support Files/Pods-Money/Pods-Money.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				153C57EABB471FA8CFF0D2A1 /* Pods_Money.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,8 @@
 			children = (
 				3E6FF59E26D3FDB500A373CB /* Money */,
 				3E6FF59D26D3FDB500A373CB /* Products */,
+				41734F13167619A267F4A19C /* Pods */,
+				C3CFC87B50A270452509BF47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +127,7 @@
 				3E6FF5AB26D3FDB600A373CB /* Assets.xcassets */,
 				3E6FF5AD26D3FDB600A373CB /* LaunchScreen.storyboard */,
 				3E6FF5B026D3FDB600A373CB /* Info.plist */,
+				3E25D07E27098F6600181A21 /* GoogleService-Info.plist */,
 				3EB60DA926F47A16007BE8CD /* ModalTransitionMediator.swift */,
 			);
 			path = Money;
@@ -155,6 +167,7 @@
 				3EB7ADB626E89BBF00C36345 /* CreateCategoryViewController.swift */,
 				3E25D0782704236700181A21 /* NewsViewController.swift */,
 				3E25D07C2706E36400181A21 /* DetailNewsViewController.swift */,
+				3E25D08027098FCD00181A21 /* WelcomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,6 +183,23 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		41734F13167619A267F4A19C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D989AC74C9B5FC2C087360D /* Pods-Money.debug.xcconfig */,
+				27EAB31D30B12E78935C8236 /* Pods-Money.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C3CFC87B50A270452509BF47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				92BE1CA9F5A5815B9243A085 /* Pods_Money.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -177,9 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E6FF5B326D3FDB600A373CB /* Build configuration list for PBXNativeTarget "Money" */;
 			buildPhases = (
+				E840CC8F8B58A9E751676DA7 /* [CP] Check Pods Manifest.lock */,
 				3E6FF59826D3FDB500A373CB /* Sources */,
 				3E6FF59926D3FDB500A373CB /* Frameworks */,
 				3E6FF59A26D3FDB500A373CB /* Resources */,
+				9753BF407BA6278067C05588 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E25D07F27098F6600181A21 /* GoogleService-Info.plist in Resources */,
 				3E6FF5AF26D3FDB600A373CB /* LaunchScreen.storyboard in Resources */,
 				3E6FF5AC26D3FDB600A373CB /* Assets.xcassets in Resources */,
 				3EF37F9226D7CBDB0043A7E1 /* BalancesTableViewCell.xib in Resources */,
@@ -235,6 +268,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9753BF407BA6278067C05588 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Money/Pods-Money-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Money/Pods-Money-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Money/Pods-Money-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E840CC8F8B58A9E751676DA7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Money-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3E6FF59826D3FDB500A373CB /* Sources */ = {
@@ -250,6 +325,7 @@
 				3EF37F9626DCE5A30043A7E1 /* CustomTabBarController.swift in Sources */,
 				3EC56F6C26E5F20700B63E48 /* CategoryViewController.swift in Sources */,
 				3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */,
+				3E25D08127098FCD00181A21 /* WelcomeViewController.swift in Sources */,
 				3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */,
 				3E25D07B2705A4CF00181A21 /* NewsCell.swift in Sources */,
 				3EF37F9826DCF63F0043A7E1 /* CustomTabBar.swift in Sources */,
@@ -407,6 +483,7 @@
 		};
 		3E6FF5B426D3FDB600A373CB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D989AC74C9B5FC2C087360D /* Pods-Money.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -426,6 +503,7 @@
 		};
 		3E6FF5B526D3FDB600A373CB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27EAB31D30B12E78935C8236 /* Pods-Money.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -16,7 +16,7 @@ protocol NewsManagerDelegate {
     func didFailWithError(error: Error)
 }
 struct NewsManager {
-    let newsURL = "https://newsapi.org/v2/everything?from=2021-09-03&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d"
+    let newsURL = "https://newsapi.org/v2/everything?from=2021-10-03&sortBy=publishedAt&apiKey=5d33f65acad6453d92760e7c0fa0a89d"
     var delegate: NewsManagerDelegate?
     func fetchNews(topic: String) {
         let urlString = "\(newsURL)&q=\(topic)"
