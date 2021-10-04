@@ -18,6 +18,8 @@
 		3E25D07F27098F6600181A21 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E25D07E27098F6600181A21 /* GoogleService-Info.plist */; };
 		3E25D08127098FCD00181A21 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E25D08027098FCD00181A21 /* WelcomeViewController.swift */; };
 		3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3700B026EBD80C00713904 /* ColorCell.swift */; };
+		3E448856270AC98300D268F7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E448855270AC98300D268F7 /* AccountViewController.swift */; };
+		3E448858270AE02200D268F7 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E448857270AE02200D268F7 /* AccountCell.swift */; };
 		3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A4C426F5E2A2002BA59E /* DummyFile.swift */; };
 		3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */; };
 		3E6FF5A226D3FDB500A373CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF5A126D3FDB500A373CB /* SceneDelegate.swift */; };
@@ -51,6 +53,8 @@
 		3E25D07E27098F6600181A21 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E25D08027098FCD00181A21 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3E3700B026EBD80C00713904 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		3E448855270AC98300D268F7 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		3E448857270AE02200D268F7 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
 		3E66A4C426F5E2A2002BA59E /* DummyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFile.swift; sourceTree = "<group>"; };
 		3E6FF59C26D3FDB500A373CB /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +172,7 @@
 				3E25D0782704236700181A21 /* NewsViewController.swift */,
 				3E25D07C2706E36400181A21 /* DetailNewsViewController.swift */,
 				3E25D08027098FCD00181A21 /* WelcomeViewController.swift */,
+				3E448855270AC98300D268F7 /* AccountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 		3E74540C26E1E767005E762E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3E448857270AE02200D268F7 /* AccountCell.swift */,
 				3EF37F8F26D7CBDB0043A7E1 /* BalancesTableViewCell.swift */,
 				3E74540A26E1E75C005E762E /* CategoryCell.swift */,
 				3E3700B026EBD80C00713904 /* ColorCell.swift */,
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1F73B82701C83F00D6B1F4 /* ReportsViewController.swift in Sources */,
+				3E448856270AC98300D268F7 /* AccountViewController.swift in Sources */,
 				3EF37F9126D7CBDB0043A7E1 /* BalancesTableViewCell.swift in Sources */,
 				3EF37F9A26DCFD0F0043A7E1 /* DataEntriesViewController.swift in Sources */,
 				3E6FF5A426D3FDB500A373CB /* HomeViewController.swift in Sources */,
@@ -338,6 +345,7 @@
 				3E6FF5BA26D4111000A373CB /* MoneyData.swift in Sources */,
 				3EF37F9426DA11CD0043A7E1 /* Balance.swift in Sources */,
 				3E25D0792704236700181A21 /* NewsViewController.swift in Sources */,
+				3E448858270AE02200D268F7 /* AccountCell.swift in Sources */,
 				3E6FF5A226D3FDB500A373CB /* SceneDelegate.swift in Sources */,
 				3E74540B26E1E75C005E762E /* CategoryCell.swift in Sources */,
 			);

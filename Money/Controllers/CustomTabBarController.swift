@@ -34,9 +34,9 @@ class CustomTabBarController: UITabBarController {
         fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
         let nav4 = UINavigationController(rootViewController: fourthVC)
 
-        let controller5 = UIViewController()
-        controller5.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)
-        let nav5 = UINavigationController(rootViewController: controller5)
+        let fifthVC = storyboard.instantiateViewController(withIdentifier: "accountVC")
+        fifthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)
+        let nav5 = UINavigationController(rootViewController: fifthVC)
         
         setupMiddleButton()
         viewControllers = [nav1, nav2, nav4, nav5]
