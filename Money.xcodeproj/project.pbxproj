@@ -20,6 +20,7 @@
 		3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3700B026EBD80C00713904 /* ColorCell.swift */; };
 		3E448856270AC98300D268F7 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E448855270AC98300D268F7 /* AccountViewController.swift */; };
 		3E448858270AE02200D268F7 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E448857270AE02200D268F7 /* AccountCell.swift */; };
+		3E44885A270C250900D268F7 /* AccountSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E448859270C250900D268F7 /* AccountSection.swift */; };
 		3E66A4C526F5E2A2002BA59E /* DummyFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A4C426F5E2A2002BA59E /* DummyFile.swift */; };
 		3E6FF5A026D3FDB500A373CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */; };
 		3E6FF5A226D3FDB500A373CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6FF5A126D3FDB500A373CB /* SceneDelegate.swift */; };
@@ -55,6 +56,7 @@
 		3E3700B026EBD80C00713904 /* ColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3E448855270AC98300D268F7 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		3E448857270AE02200D268F7 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		3E448859270C250900D268F7 /* AccountSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSection.swift; sourceTree = "<group>"; };
 		3E66A4C426F5E2A2002BA59E /* DummyFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyFile.swift; sourceTree = "<group>"; };
 		3E6FF59C26D3FDB500A373CB /* Money.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Money.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E6FF59F26D3FDB500A373CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 		3E6FF5B626D40FD000A373CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3E448859270C250900D268F7 /* AccountSection.swift */,
 				3E25D0712702E5F600181A21 /* Networking */,
 				3E66A4C426F5E2A2002BA59E /* DummyFile.swift */,
 				3E6FF5B926D4111000A373CB /* MoneyData.swift */,
@@ -342,6 +345,7 @@
 				3E25D0752702E63500181A21 /* NewsManager.swift in Sources */,
 				3E25D07D2706E36500181A21 /* DetailNewsViewController.swift in Sources */,
 				3E3700B126EBD80C00713904 /* ColorCell.swift in Sources */,
+				3E44885A270C250900D268F7 /* AccountSection.swift in Sources */,
 				3E6FF5BA26D4111000A373CB /* MoneyData.swift in Sources */,
 				3EF37F9426DA11CD0043A7E1 /* Balance.swift in Sources */,
 				3E25D0792704236700181A21 /* NewsViewController.swift in Sources */,

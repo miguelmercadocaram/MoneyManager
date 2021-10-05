@@ -12,8 +12,8 @@ class AccountViewController: UIViewController {
     
     var tableView: UITableView!
     
-
-    
+    var personalOptions: [String] = ["Information", "Details", "Changes"]
+    var settingsOptions: [String] = ["Contact Us", "Sign Out", "Delete Account"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,22 +94,64 @@ class AccountViewController: UIViewController {
         view.addSubview(tableView)
         tableView.frame = view.frame
         
-//        let frame = CGRect(x: 0, y: 160, width: view.frame.width, height: 100)
-//        profileView().frame = frame
         tableView.tableHeaderView = profileView()
         tableView.tableFooterView = UIView()
         
-    }
+    } 
     
 }
 
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return AccountSection.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        
+        let title = UILabel()
+        title.font = UIFont.boldSystemFont(ofSize: 16)
+        title.textColor = .white
+        title.text = AccountSection(rawValue: section)?.description
+        view.addSubview(title)
+        title.translatesAutoresizingMaskIntoConstraints = false
+        title.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        title.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16).isActive = true
+        
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        
+        guard let section = AccountSection(rawValue: section) else {return 0}
+        
+    
+        switch section {
+        case .Personal:
+            return personalOptions.count
+        case .Settings:
+            return 3
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let personalOps = personalOptions[indexPath.row]
+        let settingsOps = settingsOptions[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "accountCell", for: indexPath) as! AccountCell
+        guard let section = AccountSection(rawValue: indexPath.section) else { return UITableViewCell() }
+        switch section {
+        case .Personal:
+            cell.textLabel?.text = personalOps
+        case .Settings:
+            cell.textLabel?.text = settingsOps
+        }
+        
+        
         return cell
     }
 }
