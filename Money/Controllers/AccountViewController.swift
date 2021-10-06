@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
+import MessageUI
 
-
-class AccountViewController: UIViewController {
+class AccountViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var tableView: UITableView!
     
@@ -53,7 +55,7 @@ class AccountViewController: UIViewController {
         
         let emailLabel: UILabel = {
             let email = UILabel()
-            email.text = "Miguel"
+            email.text = "Miguel@ula.com"
             email.font = UIFont.systemFont(ofSize: 14)
             email.textColor = .lightGray
             email.translatesAutoresizingMaskIntoConstraints = false
@@ -97,7 +99,26 @@ class AccountViewController: UIViewController {
         tableView.tableHeaderView = profileView()
         tableView.tableFooterView = UIView()
         
-    } 
+    }
+    
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["example@ula.com"])
+           
+            
+
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            print("failed")
+        }
+    }
+
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
     
 }
 
@@ -153,5 +174,38 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let settingsOps = settingsOptions[indexPath.row]
+        if settingsOps == "Sign Out" {
+            let firebaseAuth = Auth.auth()
+            dismiss(animated: true, completion: nil)
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print("Error signing out: %@", signOutError)
+        }
+        
+           
+        }
+        
+        if settingsOps == "Delete Account" {
+            let user = Auth.auth().currentUser
+
+            user?.delete { error in
+              if let error = error {
+                print(error)
+              } else {
+                print("account is deleted")
+                self.dismiss(animated: true, completion: nil)
+              }
+            }
+        }
+        
+        if settingsOps == "Contact Us" {
+            sendEmail()
+        }
+        
     }
 }
