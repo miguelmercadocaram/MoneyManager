@@ -16,7 +16,9 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
     
     var personalOptions: [String] = ["Information", "Details", "Changes"]
     var settingsOptions: [String] = ["Contact Us", "Sign Out", "Delete Account"]
-
+    
+    let user = Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +33,7 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
        configureTableView()
         
         
+        
     }
     
     func profileView() -> UIView {
@@ -41,13 +44,13 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
             iv.contentMode = .scaleAspectFill
             iv.clipsToBounds = true
             iv.translatesAutoresizingMaskIntoConstraints = false
-            iv.image = UIImage(named: "beauty")
+            iv.load(url: user?.photoURL ?? URL(fileURLWithPath: ""))
             return iv
         }()
         
         let userNameLabel: UILabel = {
             let userName = UILabel()
-            userName.text = "Miguel"
+            userName.text = user?.displayName
             userName.font = UIFont.systemFont(ofSize: 16)
             userName.translatesAutoresizingMaskIntoConstraints = false
             return userName
@@ -55,7 +58,7 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         
         let emailLabel: UILabel = {
             let email = UILabel()
-            email.text = "Miguel@ula.com"
+            email.text = user?.email
             email.font = UIFont.systemFont(ofSize: 14)
             email.textColor = .lightGray
             email.translatesAutoresizingMaskIntoConstraints = false
@@ -177,35 +180,61 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let settingsOps = settingsOptions[indexPath.row]
-        if settingsOps == "Sign Out" {
-            let firebaseAuth = Auth.auth()
-            dismiss(animated: true, completion: nil)
-        do {
-          try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-          print("Error signing out: %@", signOutError)
-        }
         
-           
-        }
-        
-        if settingsOps == "Delete Account" {
-            let user = Auth.auth().currentUser
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 0:
+                print(indexPath.row)
+            case 1:
+                print(indexPath.row)
+            case 2:
+                print(indexPath.row)
+            default:
+                break
+            }
+        }else {
+            switch indexPath.row {
+            case 0:
+                sendEmail()
+            
+            case 1:    let firebaseAuth = Auth.auth()
+                dismiss(animated: true, completion: nil)
+            do {
+              try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print("Error signing out: %@", signOutError)
+            }
+               
+            case 2:
+                let user = Auth.auth().currentUser
 
-            user?.delete { error in
-              if let error = error {
-                print(error)
-              } else {
-                print("account is deleted")
-                self.dismiss(animated: true, completion: nil)
-              }
+                user?.delete { error in
+                  if let error = error {
+                    print(error)
+                  } else {
+                    print("account is deleted")
+                    self.dismiss(animated: true, completion: nil)
+                  }
+                }
+            default:
+                break
             }
         }
         
-        if settingsOps == "Contact Us" {
-            sendEmail()
-        }
         
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
