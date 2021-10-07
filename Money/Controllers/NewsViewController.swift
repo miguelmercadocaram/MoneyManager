@@ -23,6 +23,10 @@ class NewsViewController: UIViewController, NewsManagerDelegate {
         newsManager.delegate = self
 
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barTintColor = UIColor(red: 133/255, green: 187/255, blue: 101/255, alpha: 1)
+        navigationItem.title = "News"
         
         tableView.dataSource = self
         tableView.delegate = self

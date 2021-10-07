@@ -16,7 +16,7 @@ class NewsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        content.backgroundColor = .orange
+        content.backgroundColor = UIColor(red: 133/255, green: 187/255, blue: 101/255, alpha: 1)
         content.layer.cornerRadius = 10
         
     }

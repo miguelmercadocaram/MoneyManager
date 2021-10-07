@@ -9,15 +9,17 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import MessageUI
+import CoreData
 
 class AccountViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     var tableView: UITableView!
     
-    var personalOptions: [String] = ["Information", "Details", "Changes"]
+    var personalOptions: [String] = ["Update Profile", "Delete Balance", "Touch ID / Face ID"]
     var settingsOptions: [String] = ["Contact Us", "Sign Out", "Delete Account"]
     
     let user = Auth.auth().currentUser
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,10 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.barTintColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 133/255, green: 187/255, blue: 101/255, alpha: 1)
         navigationItem.title = "Account"
         
        configureTableView()
-        
         
         
     }
@@ -123,6 +124,49 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         controller.dismiss(animated: true)
     }
     
+    func saveBalances() {
+        do {
+            try context.save()
+        }catch {
+            print("Error saving context \(error)")
+        }
+    }
+
+    
+    func entityIsEmpty(entity: String) -> Bool
+    {
+
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        var results : NSArray?
+
+        do {
+            results = try context.fetch(request) as! [NSManagedObject] as NSArray
+            print(results)
+            return results?.count == 0
+
+        } catch let error as NSError {
+            // failure
+            print("Error: \(error.debugDescription)")
+            return true
+        }
+    }
+    
+    func deleteAllData(_ entity:String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try context.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                context.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+    }
+  
+    
 }
 
 extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
@@ -133,7 +177,7 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 55/255, green: 120/255, blue: 250/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 133/255, green: 187/255, blue: 101/255, alpha: 1)
         
         let title = UILabel()
         title.font = UIFont.boldSystemFont(ofSize: 16)
@@ -186,7 +230,14 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
             case 0:
                 print(indexPath.row)
             case 1:
-                print(indexPath.row)
+                let alert = UIAlertController(title: "Are you sure?", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "YES", style: .default, handler: { _ in
+                    self.deleteAllData("Balances")
+                    self.saveBalances()
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                present(alert, animated: true, completion: nil)
             case 2:
                 print(indexPath.row)
             default:
