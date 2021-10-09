@@ -32,7 +32,7 @@ class NewsViewController: UIViewController, NewsManagerDelegate {
         tableView.delegate = self
         
         searchTextField.delegate = self
-        
+        searchTextField.placeholder = "🔍Type your topic of interest"
        
         
     }
@@ -60,6 +60,11 @@ class NewsViewController: UIViewController, NewsManagerDelegate {
 
 extension NewsViewController: UITextFieldDelegate {
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = ""
+    }
+   
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.endEditing(true)
         return true
@@ -69,7 +74,7 @@ extension NewsViewController: UITextFieldDelegate {
         if textField.text != "" {
             return true
         }else {
-            textField.placeholder = "Type your topic of interest"
+            textField.placeholder = "🔍Type your topic of interest"
             return false
         }
     }
@@ -79,6 +84,7 @@ extension NewsViewController: UITextFieldDelegate {
             tableView.reloadData()
         }
         searchTextField.text = ""
+        searchTextField.placeholder = "🔍Type your topic of interest"
     }
     
 }

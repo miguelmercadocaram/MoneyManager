@@ -20,8 +20,15 @@ class ReportsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barTintColor = UIColor(red: 133/255, green: 187/255, blue: 101/255, alpha: 1)
+        navigationItem.title = "Reports"
+        
+        searchBar.backgroundColor = .lightGray
+        searchBar.layer.cornerRadius = 10
         
         balance.removeAll()
         loadBalances()

@@ -24,6 +24,8 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .black
+        
         //navigation
         
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -52,7 +54,8 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         let userNameLabel: UILabel = {
             let userName = UILabel()
             userName.text = user?.displayName
-            userName.font = UIFont.systemFont(ofSize: 16)
+            userName.textColor = .white
+            userName.font = UIFont.boldSystemFont(ofSize: 16)
             userName.translatesAutoresizingMaskIntoConstraints = false
             return userName
         }()
@@ -60,7 +63,8 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         let emailLabel: UILabel = {
             let email = UILabel()
             email.text = user?.email
-            email.font = UIFont.systemFont(ofSize: 14)
+            email.textColor = .white
+            email.font = UIFont.boldSystemFont(ofSize: 16)
             email.textColor = .lightGray
             email.translatesAutoresizingMaskIntoConstraints = false
             return email
@@ -95,7 +99,7 @@ class AccountViewController: UIViewController, MFMailComposeViewControllerDelega
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 60
-        
+        tableView.backgroundColor = .black
         tableView.register(AccountCell.self, forCellReuseIdentifier: "accountCell")
         view.addSubview(tableView)
         tableView.frame = view.frame
@@ -214,9 +218,15 @@ extension AccountViewController: UITableViewDelegate, UITableViewDataSource {
         guard let section = AccountSection(rawValue: indexPath.section) else { return UITableViewCell() }
         switch section {
         case .Personal:
+            cell.backgroundColor = .black
             cell.textLabel?.text = personalOps
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         case .Settings:
+            cell.backgroundColor = .black
             cell.textLabel?.text = settingsOps
+            cell.textLabel?.textColor = .white
+            cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         }
         
         
