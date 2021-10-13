@@ -158,6 +158,12 @@ extension ReportsViewController: UITableViewDataSource, UITableViewDelegate {
         let balance = balance[indexPath.section][indexPath.row]
         
         cell.setBalance(balance: balance)
+        
+        if balance.isExpense == true {
+            cell.amountLabel.textColor = .systemRed
+        }else {
+            cell.amountLabel.textColor = .systemGreen
+        }
             
   
        return cell

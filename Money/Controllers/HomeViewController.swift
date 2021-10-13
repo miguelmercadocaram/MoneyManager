@@ -48,42 +48,12 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var incomeLabel: UILabel!
     @IBOutlet weak var expensesLabel: UILabel!
     
-//    var balanceFromServer = [
-//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
-//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
-//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
-//        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
-//                        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "Monika", balanceAmount: "8000", date: Date.dateFromCustomString(customString: "04/08/2020")),
-//                        Balance(balanceImage: UIImage(named: "expenses"), categoryName: "Hola Pela", balanceAmount: "5000", date: Date())
-//
-//    ]
-    
-//    var balance = [
-//
-//
-//        [
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021")),
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "08/03/2021"))
-//        ],
-//            [
-//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
-//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021")),
-//                Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date.dateFromCustomString(customString: "06/03/2021"))
-//            ],
-//        [
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date()),
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date()),
-//            Balance(balanceImage: UIImage(named: "expenses"), categoryName: "klkkk", balanceAmount: "89", date: Date())
-//        ]
-//
-//
-//        ]
+
     
     var balanceFromServer = [Balances]()
     var balance = [[Balances]]()
     
-  
+   
     
     var totalExpenses = [Expenses]()
     var totalIncome = [Income]()
@@ -94,10 +64,10 @@ class HomeViewController: UIViewController {
     var expenseNumber = 0.0
     var incomeNumber = 0.0
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    
+ 
         navigationController?.isNavigationBarHidden = true
         
         balancesView.layer.cornerRadius = 8
@@ -121,11 +91,6 @@ class HomeViewController: UIViewController {
             incomeNumber = totalIncome[i].income
             incomeLabel.text = "\(totalIncome[i].income)"
         }
-        
-     
-     
-            
-        //attempToAssembleGroupBalances()
         
         
     }
@@ -175,7 +140,7 @@ class HomeViewController: UIViewController {
             attempToAssembleGroupBalances()
             tableView.reloadData()
         
-
+        
     }
 
     
@@ -193,12 +158,14 @@ class HomeViewController: UIViewController {
         let request: NSFetchRequest<Expenses> = Expenses.fetchRequest()
         let incomeRequest: NSFetchRequest<Income> = Income.fetchRequest()
         let balancesRequest: NSFetchRequest<Balances> = Balances.fetchRequest()
+    
 //        let sort = NSSortDescriptor(key: #keyPath(Balances.date), ascending: true)
 //            balancesRequest.sortDescriptors = [sort]
         do {
             totalExpenses = try context.fetch(request)
             totalIncome = try context.fetch(incomeRequest)
             balanceFromServer = try context.fetch(balancesRequest)
+            
         } catch {
             print("Error fetching data \(error)")
         }
@@ -256,7 +223,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
         if let firstDate = balance[section].first {
             let label = DateHeaderLabel()
-            label.backgroundColor = .black
+            label.backgroundColor = .lightGray
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
 
@@ -265,6 +232,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
             label.text = dateString
             label.textColor = .white
+            label.font = UIFont.boldSystemFont(ofSize: 16)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
 
@@ -294,7 +262,15 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         let balance = balance[indexPath.section][indexPath.row]
         
         cell.setBalance(balance: balance)
-            
+        
+        
+        if balance.isExpense == true {
+            cell.amountLabel.textColor = .systemRed
+        }else {
+            cell.amountLabel.textColor = .systemGreen
+        }
+       
+
   
        return cell
     }

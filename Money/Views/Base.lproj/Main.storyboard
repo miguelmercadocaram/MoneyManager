@@ -24,102 +24,79 @@
                                         <rect key="frame" x="8" y="8" width="398" height="128"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$1892" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="8EQ-sh-laj">
-                                                <rect key="frame" x="32" y="63.5" width="119" height="46.5"/>
+                                                <rect key="frame" x="139.5" y="41" width="119" height="46.5"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balanceWallet" translatesAutoresizingMaskIntoConstraints="NO" id="H06-wL-6D5">
-                                                <rect key="frame" x="158" y="0.0" width="240" height="128"/>
-                                            </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-Wz-d3K">
-                                                <rect key="frame" x="32" y="44.5" width="119" height="19"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTW-Wz-d3K">
+                                                <rect key="frame" x="146" y="8" width="119" height="19"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="H06-wL-6D5" firstAttribute="leading" secondItem="s6b-8T-FXJ" secondAttribute="leading" constant="158" id="2tL-IA-dXS"/>
-                                            <constraint firstItem="8EQ-sh-laj" firstAttribute="leading" secondItem="s6b-8T-FXJ" secondAttribute="leading" constant="32" id="7Bf-XP-lAd"/>
-                                            <constraint firstItem="tTW-Wz-d3K" firstAttribute="leading" secondItem="8EQ-sh-laj" secondAttribute="leading" id="8YK-dW-Xjx"/>
-                                            <constraint firstItem="H06-wL-6D5" firstAttribute="leading" secondItem="8EQ-sh-laj" secondAttribute="trailing" constant="7" id="R45-3d-cpA"/>
-                                            <constraint firstItem="tTW-Wz-d3K" firstAttribute="trailing" secondItem="8EQ-sh-laj" secondAttribute="trailing" id="egp-hv-F6V"/>
-                                            <constraint firstItem="8EQ-sh-laj" firstAttribute="top" secondItem="tTW-Wz-d3K" secondAttribute="bottom" id="fYO-eF-W3C"/>
-                                            <constraint firstAttribute="bottom" secondItem="8EQ-sh-laj" secondAttribute="bottom" constant="18" id="g6j-Hf-epG"/>
-                                            <constraint firstItem="H06-wL-6D5" firstAttribute="top" secondItem="s6b-8T-FXJ" secondAttribute="top" id="rAh-wX-OqL"/>
-                                            <constraint firstAttribute="bottom" secondItem="H06-wL-6D5" secondAttribute="bottom" id="tlt-qN-OSl"/>
-                                            <constraint firstAttribute="trailing" secondItem="H06-wL-6D5" secondAttribute="trailing" id="wRx-mE-etl"/>
+                                            <constraint firstItem="tTW-Wz-d3K" firstAttribute="leading" secondItem="s6b-8T-FXJ" secondAttribute="leading" constant="146" id="272-7C-ORw"/>
+                                            <constraint firstItem="8EQ-sh-laj" firstAttribute="centerY" secondItem="s6b-8T-FXJ" secondAttribute="centerY" id="5lC-lk-aot"/>
+                                            <constraint firstItem="8EQ-sh-laj" firstAttribute="centerX" secondItem="s6b-8T-FXJ" secondAttribute="centerX" id="5uM-c1-eox"/>
+                                            <constraint firstItem="tTW-Wz-d3K" firstAttribute="top" secondItem="s6b-8T-FXJ" secondAttribute="top" constant="8" id="813-Kk-d8C"/>
+                                            <constraint firstAttribute="trailing" secondItem="tTW-Wz-d3K" secondAttribute="trailing" constant="133" id="jBG-bo-xuz"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58D-Zf-dtc" userLabel="Expenses View">
                                         <rect key="frame" x="209" y="144" width="196" height="123"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="expenses" translatesAutoresizingMaskIntoConstraints="NO" id="pT7-7N-UnD">
-                                                <rect key="frame" x="91" y="26" width="105" height="71"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2341" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="sqH-Fn-Jf9">
-                                                <rect key="frame" x="8" y="42.5" width="75" height="29"/>
+                                                <rect key="frame" x="60.5" y="47" width="75" height="29"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expenses" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YI9-xy-dmX">
-                                                <rect key="frame" x="17" y="26.5" width="66" height="16"/>
+                                                <rect key="frame" x="65" y="23" width="66" height="16"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="sqH-Fn-Jf9" secondAttribute="bottom" constant="51.5" id="1oT-0F-Tfz"/>
-                                            <constraint firstAttribute="trailing" secondItem="pT7-7N-UnD" secondAttribute="trailing" id="4Zg-km-3w7"/>
-                                            <constraint firstItem="pT7-7N-UnD" firstAttribute="leading" secondItem="58D-Zf-dtc" secondAttribute="leading" constant="91" id="6on-Rl-W2u"/>
-                                            <constraint firstItem="pT7-7N-UnD" firstAttribute="top" secondItem="58D-Zf-dtc" secondAttribute="top" constant="26" id="Job-f6-aGW"/>
-                                            <constraint firstAttribute="bottom" secondItem="pT7-7N-UnD" secondAttribute="bottom" constant="26" id="MR4-MW-4R9"/>
-                                            <constraint firstItem="YI9-xy-dmX" firstAttribute="leading" secondItem="58D-Zf-dtc" secondAttribute="leading" constant="17" id="O6h-s3-Ih8"/>
-                                            <constraint firstItem="sqH-Fn-Jf9" firstAttribute="top" secondItem="YI9-xy-dmX" secondAttribute="bottom" id="UXw-jg-Ps4"/>
-                                            <constraint firstItem="sqH-Fn-Jf9" firstAttribute="top" secondItem="YI9-xy-dmX" secondAttribute="bottom" id="iV3-XU-Ghi"/>
-                                            <constraint firstItem="sqH-Fn-Jf9" firstAttribute="leading" secondItem="58D-Zf-dtc" secondAttribute="leading" constant="8" id="oOm-m9-E4C"/>
-                                            <constraint firstAttribute="trailing" secondItem="YI9-xy-dmX" secondAttribute="trailing" constant="113" id="yQW-er-rpx"/>
+                                            <constraint firstItem="sqH-Fn-Jf9" firstAttribute="centerY" secondItem="58D-Zf-dtc" secondAttribute="centerY" id="B9c-wi-KjM"/>
+                                            <constraint firstAttribute="trailing" secondItem="YI9-xy-dmX" secondAttribute="trailing" constant="65" id="CwW-Aa-4kv"/>
+                                            <constraint firstItem="sqH-Fn-Jf9" firstAttribute="centerX" secondItem="58D-Zf-dtc" secondAttribute="centerX" id="ZeH-Oi-maF"/>
+                                            <constraint firstItem="YI9-xy-dmX" firstAttribute="leading" secondItem="58D-Zf-dtc" secondAttribute="leading" constant="65" id="ptA-s2-YAa"/>
+                                            <constraint firstItem="YI9-xy-dmX" firstAttribute="top" secondItem="58D-Zf-dtc" secondAttribute="top" constant="23" id="xb6-KA-5Os"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-WN-YvK" userLabel="Income View">
                                         <rect key="frame" x="8" y="144" width="198" height="123"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4389" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="xbv-iq-Vkx">
-                                                <rect key="frame" x="8" y="42.5" width="75" height="29"/>
+                                                <rect key="frame" x="61.5" y="47" width="75" height="29"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incomeImage" translatesAutoresizingMaskIntoConstraints="NO" id="46K-8W-v2g">
-                                                <rect key="frame" x="91" y="26" width="107" height="71"/>
-                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Income" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Drh-iW-LDg">
-                                                <rect key="frame" x="17" y="26" width="57" height="16.5"/>
+                                                <rect key="frame" x="71" y="22" width="57" height="16.5"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="xbv-iq-Vkx" firstAttribute="leading" secondItem="ZOi-WN-YvK" secondAttribute="leading" constant="8" id="2fY-Zw-Q0g"/>
-                                            <constraint firstAttribute="bottom" secondItem="xbv-iq-Vkx" secondAttribute="bottom" constant="51.5" id="7Fi-yi-qL9"/>
-                                            <constraint firstAttribute="trailing" secondItem="46K-8W-v2g" secondAttribute="trailing" id="ERk-dk-n7P"/>
-                                            <constraint firstAttribute="bottom" secondItem="46K-8W-v2g" secondAttribute="bottom" constant="26" id="Q6m-cp-nOl"/>
-                                            <constraint firstItem="46K-8W-v2g" firstAttribute="top" secondItem="ZOi-WN-YvK" secondAttribute="top" constant="26" id="alF-he-nQb"/>
-                                            <constraint firstAttribute="trailing" secondItem="Drh-iW-LDg" secondAttribute="trailing" constant="124" id="asm-Xi-2vd"/>
-                                            <constraint firstItem="xbv-iq-Vkx" firstAttribute="top" secondItem="Drh-iW-LDg" secondAttribute="bottom" id="iGg-5d-V89"/>
-                                            <constraint firstItem="Drh-iW-LDg" firstAttribute="leading" secondItem="ZOi-WN-YvK" secondAttribute="leading" constant="17" id="mla-tA-BDq"/>
-                                            <constraint firstItem="46K-8W-v2g" firstAttribute="leading" secondItem="ZOi-WN-YvK" secondAttribute="leading" constant="91" id="vps-ml-MCv"/>
-                                            <constraint firstItem="46K-8W-v2g" firstAttribute="leading" secondItem="xbv-iq-Vkx" secondAttribute="trailing" constant="8" id="ybD-Zl-Vof"/>
+                                            <constraint firstItem="xbv-iq-Vkx" firstAttribute="centerY" secondItem="ZOi-WN-YvK" secondAttribute="centerY" id="FZv-ts-jZm"/>
+                                            <constraint firstItem="xbv-iq-Vkx" firstAttribute="centerX" secondItem="ZOi-WN-YvK" secondAttribute="centerX" id="RFq-MW-ywB"/>
+                                            <constraint firstAttribute="trailing" secondItem="Drh-iW-LDg" secondAttribute="trailing" constant="70" id="Uwg-Aj-1Ww"/>
+                                            <constraint firstItem="Drh-iW-LDg" firstAttribute="leading" secondItem="ZOi-WN-YvK" secondAttribute="leading" constant="71" id="lOG-eh-1gE"/>
+                                            <constraint firstItem="Drh-iW-LDg" firstAttribute="top" secondItem="ZOi-WN-YvK" secondAttribute="top" constant="22" id="yMI-j5-g6W"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="ZOi-WN-YvK" firstAttribute="top" secondItem="58D-Zf-dtc" secondAttribute="top" id="0i0-KU-4ix"/>
                                     <constraint firstItem="s6b-8T-FXJ" firstAttribute="top" secondItem="lPP-cs-ptU" secondAttribute="top" constant="8" id="EKg-fG-D2M"/>
@@ -137,7 +114,7 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-wo-jJS">
                                 <rect key="frame" x="0.0" y="363" width="414" height="450"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="jfv-Ub-WCj"/>
                                 </constraints>
@@ -1170,8 +1147,6 @@
     </designables>
     <resources>
         <image name="balanceWallet" width="707" height="496"/>
-        <image name="expenses" width="170" height="145"/>
-        <image name="incomeImage" width="121" height="176"/>
         <image name="pet" width="100" height="100"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1179,14 +1154,11 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -35,8 +35,7 @@ class DataEntriesViewController: UIViewController {
     var totalBalances = [Balances]()
     var totalExpenses = [Expenses]()
     var totalIncome = [Income]()
-    
-    
+  
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var amountTemp: String = ""
@@ -46,6 +45,7 @@ class DataEntriesViewController: UIViewController {
     var update: Bool = false
     var count = 0
     
+  
     
     
     override func viewDidLoad() {
@@ -159,6 +159,7 @@ class DataEntriesViewController: UIViewController {
             let pngImageData  = categoryLogo.image?.pngData()
             newCategoryData.categoryImage = pngImageData
             newCategoryData.date = datePicker.date
+            newCategoryData.isExpense = true
             
             if update == true {
                 self.context.delete(totalBalances[count])
@@ -170,9 +171,7 @@ class DataEntriesViewController: UIViewController {
             
             self.totalBalances.append(newCategoryData)
             
-            
-            
-            
+
             for i in 0..<totalExpenses.count - 1{
                 //print(totalExpenses[i].expenseAmount)
                 let sumValues = totalExpenses[i].expenses + expenses!
@@ -181,10 +180,7 @@ class DataEntriesViewController: UIViewController {
                 //print(sumValues)
                 
             }
-            
-          
-            
-          
+
             
         }else if segmentController.selectedSegmentIndex == 1 {
            let  income = Double(amountTextField.text!)
@@ -209,7 +205,7 @@ class DataEntriesViewController: UIViewController {
             }
             
             self.totalBalances.append(newCategoryData)
-            
+           
        
             
             for i in 0..<totalIncome.count - 1{
@@ -221,12 +217,11 @@ class DataEntriesViewController: UIViewController {
             }
             
         }
-        
-        
+       
 
         self.saveBalances()
+      
         dismiss(animated: true, completion: nil)
-
         
     }
     

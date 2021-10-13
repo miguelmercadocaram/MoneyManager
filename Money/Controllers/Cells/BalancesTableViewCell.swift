@@ -18,6 +18,8 @@ class BalancesTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
+    
+        
     }
 
     func setBalance(balance: Balances) {
@@ -25,6 +27,7 @@ class BalancesTableViewCell: UITableViewCell {
         balanceImageView.image = UIImage(data: balance.categoryImage ?? Data())
         categoryLabel.text = balance.categoryName
         amountLabel.text = "\(balance.amount)"
+        
     }
     
 }
