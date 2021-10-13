@@ -16,18 +16,21 @@ import UIKit
 
         override func draw(_ rect: CGRect) {
             self.addShape()
+           
         }
+     
 
         private func addShape() {
             let shapeLayer = CAShapeLayer()
             shapeLayer.path = createPath()
-            shapeLayer.strokeColor = UIColor.lightGray.cgColor
-            shapeLayer.fillColor = #colorLiteral(red: 0.9782002568, green: 0.9782230258, blue: 0.9782107472, alpha: 1)
-            shapeLayer.lineWidth = 0.5
-            shapeLayer.shadowOffset = CGSize(width:0, height:0)
-            shapeLayer.shadowRadius = 10
-            shapeLayer.shadowColor = UIColor.gray.cgColor
-            shapeLayer.shadowOpacity = 0.3
+//            shapeLayer.strokeColor = UIColor.lightGray.cgColor
+            //(65, 74, 76
+            shapeLayer.fillColor = UIColor(red: 65/255, green: 74/255, blue: 76/255, alpha: 1).cgColor
+//            shapeLayer.lineWidth = 0.5
+//            shapeLayer.shadowOffset = CGSize(width:0, height:0)
+//            shapeLayer.shadowRadius = 10
+//            shapeLayer.shadowColor = UIColor.gray.cgColor
+//            shapeLayer.shadowOpacity = 0.3
 
             if let oldShapeLayer = self.shapeLayer {
                 self.layer.replaceSublayer(oldShapeLayer, with: shapeLayer)

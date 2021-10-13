@@ -12,35 +12,46 @@ class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         //delegate = self
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let firstVC = storyboard.instantiateViewController(withIdentifier: "HVController")
-        //let controller1 = UIViewController()
-        firstVC.tabBarItem = UITabBarItem(tabBarSystemItem: .bookmarks, tag: 1)
+        firstVC.tabBarItem.image = UIImage(named: "homeTab")
+        firstVC.tabBarItem.tag = 1
+        firstVC.tabBarItem.title = "Home"
         let nav1 = UINavigationController(rootViewController: firstVC)
         
         
         let secondVC = storyboard.instantiateViewController(withIdentifier: "ReportsController")
-        //let controller2 = UIViewController()
-        secondVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 2)
+        secondVC.tabBarItem.image = UIImage(named: "chartTab")
+        secondVC.tabBarItem.tag = 2
+        secondVC.tabBarItem.title = "Reports"
         let nav2 = UINavigationController(rootViewController: secondVC)
 
-//        let controller3 = storyboard.instantiateViewController(identifier: "DEViewController")
-//        let nav3 = UINavigationController(rootViewController: controller3)
-//        nav3.title = ""
-        
+
 
         let fourthVC = storyboard.instantiateViewController(withIdentifier: "newsVC")
-        fourthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 4)
+        fourthVC.tabBarItem.image = UIImage(named: "newsTab")
+        fourthVC.tabBarItem.tag = 4
+        fourthVC.tabBarItem.title = "News"
         let nav4 = UINavigationController(rootViewController: fourthVC)
 
         let fifthVC = storyboard.instantiateViewController(withIdentifier: "accountVC")
-        fifthVC.tabBarItem = UITabBarItem(tabBarSystemItem: .contacts, tag: 5)
+        fifthVC.tabBarItem.image = UIImage(named: "accountTab")
+        fifthVC.tabBarItem.tag = 5
+        fifthVC.tabBarItem.title = "Account"
         let nav5 = UINavigationController(rootViewController: fifthVC)
         
         setupMiddleButton()
         viewControllers = [nav1, nav2, nav4, nav5]
        
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        self.tabBar.itemSpacing = UIScreen.main.bounds.width / 4
+        
     }
 
     func setupMiddleButton() {
