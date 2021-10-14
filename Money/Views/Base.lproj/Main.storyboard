@@ -1123,7 +1123,7 @@
             <objects>
                 <tabBarController storyboardIdentifier="tabController" automaticallyAdjustsScrollViewInsets="NO" id="D2l-f9-lNF" customClass="CustomTabBarController" customModule="Money" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" itemPositioning="centered" itemSpacing="20" itemWidth="20" id="j0Q-29-gWY" customClass="AppTabBar" customModule="Money" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="j0Q-29-gWY" customClass="AppTabBar" customModule="Money" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

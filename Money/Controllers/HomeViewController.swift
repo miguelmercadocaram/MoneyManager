@@ -68,7 +68,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
  
-        navigationController?.isNavigationBarHidden = true
+        //navigationController?.isNavigationBarHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barStyle = .black
         
         balancesView.layer.cornerRadius = 8
         incomeView.layer.cornerRadius = 8
