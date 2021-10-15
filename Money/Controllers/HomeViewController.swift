@@ -82,7 +82,6 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         
-
         
         for i in 0..<totalExpenses.count {
             expenseNumber = totalExpenses[i].expenses
@@ -121,9 +120,17 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         balance.removeAll()
+//        totalExpenses.removeAll()
+//        totalIncome.removeAll()
         loadBalances()
+        
+        //deleteAll
+     
 //        deleteAllData("Balances")
+//        deleteAllData("Income")
+//        deleteAllData("Expenses")
 //        balance.removeAll()
+//
 //        saveBalances()
         
      
@@ -315,23 +322,63 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+       
         if editingStyle == .delete {
             
             var count = 0
-
+            
 
             for i in 0..<balanceFromServer.count {
                 let balance = balance[indexPath.section][indexPath.row]
                 if balance.id == balanceFromServer[i].id {
-
-
                     count = i
+                    if balance.isExpense == true {
+                        let newExpense = Expenses(context: self.context)
+                        for i in 0..<totalExpenses.count {
+                            print("Your new expenses is \(totalExpenses[i].expenses - balance.amount)")
+                            //expensesLabel.text = "$\(totalExpenses[i].expenses - balance.amount)"
+                            //print(totalExpenses[i].expenses)
+                            let totalExpenseAmount = totalExpenses[i].expenses - balance.amount
+                            newExpense.expenses = totalExpenseAmount
+                            self.totalExpenses.append(newExpense)
+                            
+                            for i in 0..<totalExpenses.count {
+                                expenseNumber = totalExpenses[i].expenses
+                                expensesLabel.text = "$\(totalExpenses[i].expenses)"
+
+                            }
+                           
+                            
+                        }
+                    }else {
+                        let newIncome = Income(context: self.context)
+                        for i in 0..<totalIncome.count {
+                            print("Your new income is \(totalIncome[i].income - balance.amount)")
+                            //expensesLabel.text = "$\(totalExpenses[i].expenses - balance.amount)"
+                            //print(totalExpenses[i].expenses)
+                            let totalIncomeAmount = totalIncome[i].income - balance.amount
+                            newIncome.income = totalIncomeAmount
+                            self.totalIncome.append(newIncome)
+                            
+                            for i in 0..<totalIncome.count {
+                                incomeNumber = totalIncome[i].income
+                                incomeLabel.text = "$\(totalIncome[i].income)"
+
+                            }
+                           
+                            
+                        }
+                    }
+                    
+                    totalBalance = incomeNumber - expenseNumber
+                    balanceLabel.text = "$\(totalBalance)"
+                
 
                 }else {
                     print("not matched")
                 }
             }
-
+            
             self.context.delete(balanceFromServer[count])
             saveBalances()
             balance.removeAll()
