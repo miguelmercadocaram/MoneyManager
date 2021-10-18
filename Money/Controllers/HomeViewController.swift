@@ -36,7 +36,8 @@ class DateHeaderLabel: UILabel {
 class HomeViewController: UIViewController {
   
     
-
+    @IBOutlet weak var balanceView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var balancesView: UIView!
     @IBOutlet weak var incomeView: UIView!
@@ -64,6 +65,11 @@ class HomeViewController: UIViewController {
     var expenseNumber = 0.0
     var incomeNumber = 0.0
     
+
+        
+
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,9 +79,18 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barStyle = .black
         
-        balancesView.layer.cornerRadius = 8
+        
+        
         incomeView.layer.cornerRadius = 8
         expensesView.layer.cornerRadius = 8
+        
+        let newLayer = CAGradientLayer()
+        let color1 = UIColor(red: 0xFF, green: 0x6C, blue: 0xAB).withAlphaComponent(0.5)
+        let color2 = UIColor(red: 0x73, green: 0x66, blue: 0xFF).withAlphaComponent(0.5)
+        newLayer.colors = [color1.cgColor, color2.cgColor]
+        newLayer.frame = balanceView.frame
+        newLayer.cornerRadius = 8
+        balanceView.layer.insertSublayer(newLayer, at: 0)
         
         //register cell
         tableView.register(UINib(nibName: "BalancesTableViewCell", bundle: nil), forCellReuseIdentifier: "balanceCell")
@@ -152,7 +167,6 @@ class HomeViewController: UIViewController {
         
         
     }
-
     
    
     func saveBalances() {
@@ -400,5 +414,23 @@ extension Date {
         return dateFormatter.date(from: customString) ?? Date()
         
     }
+}
+
+extension UIColor {
+   convenience init(red: Int, green: Int, blue: Int) {
+       assert(red >= 0 && red <= 255, "Invalid red component")
+       assert(green >= 0 && green <= 255, "Invalid green component")
+       assert(blue >= 0 && blue <= 255, "Invalid blue component")
+
+       self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+   }
+
+   convenience init(rgb: Int) {
+       self.init(
+           red: (rgb >> 16) & 0xFF,
+           green: (rgb >> 8) & 0xFF,
+           blue: rgb & 0xFF
+       )
+   }
 }
 

@@ -34,6 +34,7 @@
 		3EB60DAA26F47A16007BE8CD /* ModalTransitionMediator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB60DA926F47A16007BE8CD /* ModalTransitionMediator.swift */; };
 		3EB7ADB726E89BBF00C36345 /* CreateCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB7ADB626E89BBF00C36345 /* CreateCategoryViewController.swift */; };
 		3EC56F6C26E5F20700B63E48 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC56F6B26E5F20700B63E48 /* CategoryViewController.swift */; };
+		3EC987C0271D456B00E747B9 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC987BF271D456A00E747B9 /* Gradient.swift */; };
 		3EF37F9126D7CBDB0043A7E1 /* BalancesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF37F8F26D7CBDB0043A7E1 /* BalancesTableViewCell.swift */; };
 		3EF37F9226D7CBDB0043A7E1 /* BalancesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EF37F9026D7CBDB0043A7E1 /* BalancesTableViewCell.xib */; };
 		3EF37F9426DA11CD0043A7E1 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF37F9326DA11CD0043A7E1 /* Balance.swift */; };
@@ -72,6 +73,7 @@
 		3EB60DA926F47A16007BE8CD /* ModalTransitionMediator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitionMediator.swift; sourceTree = "<group>"; };
 		3EB7ADB626E89BBF00C36345 /* CreateCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCategoryViewController.swift; sourceTree = "<group>"; };
 		3EC56F6B26E5F20700B63E48 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		3EC987BF271D456A00E747B9 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		3EF37F8F26D7CBDB0043A7E1 /* BalancesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancesTableViewCell.swift; sourceTree = "<group>"; };
 		3EF37F9026D7CBDB0043A7E1 /* BalancesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BalancesTableViewCell.xib; sourceTree = "<group>"; };
 		3EF37F9326DA11CD0043A7E1 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				3EF37F9526DCE5A30043A7E1 /* CustomTabBarController.swift */,
 				3E74540C26E1E767005E762E /* Cells */,
 				3E6FF5A326D3FDB500A373CB /* HomeViewController.swift */,
+				3EC987BF271D456A00E747B9 /* Gradient.swift */,
 				3E1F73B72701C83F00D6B1F4 /* ReportsViewController.swift */,
 				3EF37F9926DCFD0F0043A7E1 /* DataEntriesViewController.swift */,
 				3EC56F6B26E5F20700B63E48 /* CategoryViewController.swift */,
@@ -328,6 +331,7 @@
 				3E1F73B82701C83F00D6B1F4 /* ReportsViewController.swift in Sources */,
 				3E448856270AC98300D268F7 /* AccountViewController.swift in Sources */,
 				3EF37F9126D7CBDB0043A7E1 /* BalancesTableViewCell.swift in Sources */,
+				3EC987C0271D456B00E747B9 /* Gradient.swift in Sources */,
 				3EF37F9A26DCFD0F0043A7E1 /* DataEntriesViewController.swift in Sources */,
 				3E6FF5A426D3FDB500A373CB /* HomeViewController.swift in Sources */,
 				3E25D0772702F8BC00181A21 /* NewsData.swift in Sources */,
