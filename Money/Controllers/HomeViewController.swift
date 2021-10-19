@@ -17,6 +17,7 @@ class DateHeaderLabel: UILabel {
         textAlignment = .left
         translatesAutoresizingMaskIntoConstraints = false
         font = UIFont.boldSystemFont(ofSize: 14)
+  
         
     }
     
@@ -228,10 +229,6 @@ class HomeViewController: UIViewController {
         }
     }
   
- 
-    
-
-
 
 }
 
@@ -247,12 +244,11 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
         if let firstDate = balance[section].first {
             let label = DateHeaderLabel()
-            label.backgroundColor = .lightGray
+            label.backgroundColor = .darkGray
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yyyy"
 
             let dateString = dateFormatter.string(from: firstDate.date ?? Date())
-
 
             label.text = dateString
             label.textColor = .white
@@ -261,20 +257,16 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
             label.translatesAutoresizingMaskIntoConstraints = false
 
             let containerView = UIView()
-
             containerView.addSubview(label)
             label.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
             label.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-
+       
             return containerView
         }
        return nil
         }
     
-   
-    
 
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return balance[section].count

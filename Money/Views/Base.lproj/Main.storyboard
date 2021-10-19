@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPP-cs-ptU" userLabel="BalancesView">
-                                <rect key="frame" x="0.0" y="88" width="414" height="235"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="231"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6b-8T-FXJ" userLabel="BalanceView">
-                                        <rect key="frame" x="8" y="8" width="398" height="133.5"/>
+                                        <rect key="frame" x="8" y="8" width="398" height="129.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="8EQ-sh-laj">
-                                                <rect key="frame" x="157" y="40.5" width="84" height="52.5"/>
+                                                <rect key="frame" x="157" y="40.5" width="84" height="48.5"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -47,7 +47,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58D-Zf-dtc" userLabel="Expenses View">
-                                        <rect key="frame" x="209" y="149.5" width="196" height="85.5"/>
+                                        <rect key="frame" x="209" y="145.5" width="196" height="85.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="sqH-Fn-Jf9">
                                                 <rect key="frame" x="72" y="47" width="116" height="23.5"/>
@@ -73,7 +73,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZOi-WN-YvK" userLabel="Income View">
-                                        <rect key="frame" x="15" y="149.5" width="192" height="85.5"/>
+                                        <rect key="frame" x="15" y="145.5" width="192" height="85.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="xbv-iq-Vkx">
                                                 <rect key="frame" x="70" y="47" width="114" height="23.5"/>
@@ -113,7 +113,7 @@
                                     <constraint firstItem="58D-Zf-dtc" firstAttribute="leading" secondItem="ZOi-WN-YvK" secondAttribute="trailing" constant="2" id="vez-0R-hod"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-wo-jJS">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" estimatedRowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gpZ-wo-jJS">
                                 <rect key="frame" x="0.0" y="404" width="414" height="409"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -121,9 +121,9 @@
                                 </constraints>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Spendings/Incomes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIT-sA-dtJ">
-                                <rect key="frame" x="20" y="363" width="283" height="21"/>
+                                <rect key="frame" x="20" y="359" width="283" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="01X-6M-LNz"/>
+                                    <constraint firstAttribute="height" constant="25" id="01X-6M-LNz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

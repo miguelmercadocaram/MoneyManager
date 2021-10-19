@@ -26,8 +26,9 @@ class BalancesTableViewCell: UITableViewCell {
         //let pngImageData  = balance.image?.pngData()
         balanceImageView.image = UIImage(data: balance.categoryImage ?? Data())
         categoryLabel.text = balance.categoryName
-        amountLabel.text = "\(balance.amount)"
+        amountLabel.text = "$\(balance.amount)"
         
     }
+    
     
 }
