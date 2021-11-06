@@ -85,13 +85,13 @@ class HomeViewController: UIViewController {
         incomeView.layer.cornerRadius = 8
         expensesView.layer.cornerRadius = 8
         
-        let newLayer = CAGradientLayer()
-        let color1 = UIColor(red: 0xFF, green: 0x6C, blue: 0xAB).withAlphaComponent(0.5)
-        let color2 = UIColor(red: 0x73, green: 0x66, blue: 0xFF).withAlphaComponent(0.5)
-        newLayer.colors = [color1.cgColor, color2.cgColor]
-        newLayer.frame = balanceView.frame
-        newLayer.cornerRadius = 8
-        balanceView.layer.insertSublayer(newLayer, at: 0)
+//        let newLayer = CAGradientLayer()
+//        let color1 = UIColor(red: 0xFF, green: 0x6C, blue: 0xAB).withAlphaComponent(0.5)
+//        let color2 = UIColor(red: 0x73, green: 0x66, blue: 0xFF).withAlphaComponent(0.5)
+//        newLayer.colors = [color1.cgColor, color2.cgColor]
+//        newLayer.frame = balanceView.frame
+//        newLayer.cornerRadius = 8
+//        balanceView.layer.insertSublayer(newLayer, at: 0)
         
         //register cell
         tableView.register(UINib(nibName: "BalancesTableViewCell", bundle: nil), forCellReuseIdentifier: "balanceCell")
@@ -152,20 +152,31 @@ class HomeViewController: UIViewController {
      
         for i in 0..<totalExpenses.count {
             expenseNumber = totalExpenses[i].expenses
-            expensesLabel.text = "$\(totalExpenses[i].expenses)"
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .currency
+            let formattedNumber = numberFormatter.string(from: NSNumber(value:expenseNumber))
+            expensesLabel.text = formattedNumber
 
         }
         for i in 0..<totalIncome.count {
             incomeNumber = totalIncome[i].income
-            incomeLabel.text = "$\(totalIncome[i].income)"
+            let numberFormatter = NumberFormatter()
+            numberFormatter.numberStyle = .currency
+            let formattedNumber = numberFormatter.string(from: NSNumber(value:incomeNumber))
+            incomeLabel.text = formattedNumber
         }
-      
+        
         totalBalance = incomeNumber - expenseNumber
-        balanceLabel.text = "$\(totalBalance)"
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .currency
+        let formattedNumber = numberFormatter.string(from: NSNumber(value:totalBalance))
+        balanceLabel.text = formattedNumber
        
             attempToAssembleGroupBalances()
             tableView.reloadData()
         
+        incomeLabel.textColor = .systemGreen
+        expensesLabel.textColor = .systemRed
         
     }
     

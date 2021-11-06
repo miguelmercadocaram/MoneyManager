@@ -50,7 +50,10 @@ class DataEntriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+     
+        let titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        segmentController.setTitleTextAttributes(titleTextAttributes, for: .normal)
+        segmentController.setTitleTextAttributes(titleTextAttributes, for: .selected)
         
         navigationController?.setNavigationBarHidden(true, animated: true)
         entryBalanceView.layer.cornerRadius = 18
